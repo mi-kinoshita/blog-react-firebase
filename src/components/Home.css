@@ -1,0 +1,60 @@
+.homePage {
+    width: 100%;
+    height: calc(100vh - 60px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.homePage .postContents {
+    width: 600px;
+    height: auto;
+    max-height: 600px;
+    background-color: beige;
+    margin: 20px;
+    padding: 20px;
+}
+
+.postHeader h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.postContents .postTextContainer {
+    margin-top: 10px;
+    word-wrap: break-word;
+    height: auto;
+    max-height: 400px;
+    width: 100%;
+}
+
+.postFooter {
+    display: flex;
+    align-items: center;
+}
+
+.postFooter h3 {
+    flex: 90%;
+    margin: 0;
+}
+
+.postFooter button {
+    flex: 10%;
+    background-color: #40cb44;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.postContents button:hover {
+    background-color: #39b33d;
+
+}
