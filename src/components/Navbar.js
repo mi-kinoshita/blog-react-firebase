@@ -15,20 +15,22 @@ const Navbar = ({ isAuth }) => {
         <FontAwesomeIcon icon={faHouse} />
         Home
       </Link>
-      <Link to="/createpost">
-        <FontAwesomeIcon icon={faFilePen} />
-        Create Post
-      </Link>
       {!isAuth ? (
         <Link to="/login">
           <FontAwesomeIcon icon={faArrowRightToBracket} />
           Login
         </Link>
       ) : (
-        <Link to="/logout">
-          <FontAwesomeIcon icon={faArrowRightToBracket} />
-          Logout
-        </Link>
+        <>
+          <Link to="/createpost">
+            <FontAwesomeIcon icon={faFilePen} />
+            Create Post
+          </Link>
+          <Link to="/logout">
+            <FontAwesomeIcon icon={faArrowRightToBracket} />
+            Logout
+          </Link>
+        </>
       )}
     </nav>
   );

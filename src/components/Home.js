@@ -1,31 +1,42 @@
 import React, { useEffect } from "react";
 import "./Home.css";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import { auth, db } from "../firebase";
 
 const Home = () => {
+  const [postList, setPostList] = React.useState([]);
+
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(collection(db, "posts"));
-      console.log(data);
+      setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getPosts();
   }, []);
 
+  const handleDelete = async (id) => {
+    await deleteDoc(doc(db, "posts", id));
+    window.location.href = "/"; // Refresh the page
+  };
+
   return (
     <div className="homePage">
-      <div className="postContents">
-        <div className="postHeader">
-          <h1>Post Title</h1>
-        </div>
-        <div className="postTextContainer">
-          I'm studying React and I'm going to create a blog with it.
-        </div>
-        <div className="postFooter">
-          <h3>@aaaa</h3>
-          <button>Like</button>
-        </div>
-      </div>
+      {postList.map((post) => {
+        return (
+          <div className="postContents" key={post.id}>
+            <div className="postHeader">
+              <h1>{post.title}</h1>
+            </div>
+            <div className="postTextContainer">{post.content}</div>
+            <div className="postFooter">
+              <h3>{post.author.name}</h3>
+              {post.author.uid === auth.currentUser?.uid && (
+                <button onClick={() => handleDelete(post.id)}>Delete</button>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
