@@ -1,4 +1,4 @@
-<img src="src\components\img\scs.png" style="width: 70%;">
+<img src="src\components\img\scs.png" style="max-width: 70%;">
 
 ## Development Environment
 
