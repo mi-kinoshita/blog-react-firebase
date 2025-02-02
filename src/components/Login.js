@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { auth, provider } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { GoogleAuthProvider } from "firebase/auth";
+import "./SettingPage.css";
 
 const Login = ({ setIsAuth }) => {
   const navigate = useNavigate();
@@ -19,9 +20,9 @@ const Login = ({ setIsAuth }) => {
   };
 
   return (
-    <div>
-      <p>ログインして始める</p>
-      <button onClick={loginInWithGoogle}>login with Google</button>
+    <div className="settingPage">
+      <p>Get Started!</p>
+      <button onClick={loginInWithGoogle}>Login with Google</button>
     </div>
   );
 };

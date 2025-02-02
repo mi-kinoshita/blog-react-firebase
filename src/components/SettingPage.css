@@ -1,0 +1,28 @@
+.settingPage {
+    width: 100%;
+    height: calc(100vh - 60px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.settingPage button {
+    flex: 10%;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 2px;
+    cursor: pointer;
+}
+
+.settingPage button:hover {
+    background-color: #026fe4;
+
+}
